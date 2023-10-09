@@ -1,7 +1,7 @@
 // Initialize game variables
 let money = 300;
 let attempts = 5;
-let targetAge = Math.floor(Math.random() * 100) + 1;
+let targetAge = 87;
 
 // Update money display
 function updateMoneyDisplay() {
@@ -98,7 +98,7 @@ function resetAttempts() {
 function playAgain() {
   money = 300;
   attempts = 5;
-  targetAge = Math.floor(Math.random() * 100) + 1;
+  targetAge = 67;
   document.getElementById('cheat-indicator').innerText = "";
   updateMoneyDisplay();
   updateAttemptsDisplay();
@@ -137,7 +137,7 @@ function showPlayOptions() {
 // Show exit prompt
 function showExitPrompt() {
   console.log('showExitPrompt() called');
-  const exitConfirmation = confirm("Are you sure you want to exit the game?\n\nDeveloped by [Your Name or Team]");
+  const exitConfirmation = confirm("Are you sure you want to exit the game?\n\nDeveloped by [Collab Team]");
   if (exitConfirmation) {
     exitGame();
   }
