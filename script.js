@@ -1,3 +1,7 @@
+// add function after exit game to refresh main menu 
+// add console.log in every function
+
+
 // Initialize game variables
 let money = 500
 let attempts = 5;
