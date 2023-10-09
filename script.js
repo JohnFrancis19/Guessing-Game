@@ -1,5 +1,7 @@
-// lets add console.log for the functions to see if it working
-// for commit testing in main
+// add function after exit game to refresh main menu 
+// add console.log in every function
+
+
 // Initialize game variables
 let money = 500
 let attempts = 5;
@@ -64,15 +66,15 @@ function buyHint(hintNumber) {
 
     switch (hintNumber) {
       case 1:
-        hintPrice = 50;
+        hintPrice = 500;
         hintDescription = "Hint 1: The age is within 10 years of " + targetAge;
         break;
       case 2:
-        hintPrice = 300;
+        hintPrice = 3000;
         hintDescription = "Hint 2: The age is within 5 years of " + targetAge;
         break;
       case 3:
-        hintPrice = 1000;
+        hintPrice = 10000;
         hintDescription = "Hint 3: The age is within 1 year of " + targetAge;
         break;
       default:
@@ -98,7 +100,7 @@ function resetAttempts() {
 
 // Play again <== now working 
 function playAgain() {
-  money = 300;
+  money += 500000; // Add the reward from the previous game to the starting money
   attempts = 5;
   targetAge = 67;
   document.getElementById('cheat-indicator').innerText = "";
@@ -109,6 +111,7 @@ function playAgain() {
   document.getElementById('exit-btn').style.display = 'none';
   document.getElementById('guess').value = "";
   document.getElementById('guess').disabled = false;
+  console.log("this is working ")
 }
 
 // Show customization options
@@ -131,7 +134,7 @@ function showPlayOptions() {
   gameContainer.style.display = 'block';
   buttonsContainer.style.display = 'block';
 
-  document.getElementById('result').innerText = "Game started!";
+  document.getElementById('result').innerText = "Game started! Good luck";
 }
 
 
@@ -148,13 +151,14 @@ function showExitPrompt() {
 // Exit game
 function exitGame() {
   alert("Thank you for playing EraGlimpse: Age Unveiled!\nDeveloped by [JOHN FRANCIS SARO]");
+  console.log("THis is working master")
 }
 
 // Show achievement popup
 function showAchievementPopup() {
   const popup = document.getElementById('achievement-popup');
   popup.style.display = 'block';
-
+  console.log("this is working !")
   // Hide the popup after a few seconds (e.g., 3 seconds)
   setTimeout(() => {
     popup.style.display = 'none';
