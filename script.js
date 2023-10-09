@@ -66,15 +66,15 @@ function buyHint(hintNumber) {
 
     switch (hintNumber) {
       case 1:
-        hintPrice = 50;
+        hintPrice = 500;
         hintDescription = "Hint 1: The age is within 10 years of " + targetAge;
         break;
       case 2:
-        hintPrice = 300;
+        hintPrice = 3000;
         hintDescription = "Hint 2: The age is within 5 years of " + targetAge;
         break;
       case 3:
-        hintPrice = 1000;
+        hintPrice = 10000;
         hintDescription = "Hint 3: The age is within 1 year of " + targetAge;
         break;
       default:
@@ -100,7 +100,7 @@ function resetAttempts() {
 
 // Play again
 function playAgain() {
-  money = 300;
+  money = 500000;
   attempts = 5;
   targetAge = 67;
   document.getElementById('cheat-indicator').innerText = "";
@@ -134,7 +134,7 @@ function showPlayOptions() {
   gameContainer.style.display = 'block';
   buttonsContainer.style.display = 'block';
 
-  document.getElementById('result').innerText = "Game started!";
+  document.getElementById('result').innerText = "Game started! Good luck";
 }
 
 
