@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>EraGlimpse: Age Unveiled</title>
+</head>
+
+<body>
+  <div id="title-screen" class="container">
+    <h1 class="title">EraGlimpse: Age Unveiled</h1>
+    <button class="button" onclick="showPlayOptions()">Play</button>
+    <button class="button" onclick="showCustomizationOptions()">Customize</button>
+    <button class="button" onclick="showExitPrompt()">Exit</button>
+  </div>
+
+  <div id="game-container" class="container" style="display: none;">
+    <h1 class="title">EraGlimpse: Age Unveiled</h1>
+    <div class="info">
+      <p>Current money: $<span id="money">300</span></p>
+      <p>Attempts left: <span id="attempts">5</span></p>
+    </div>
+    <p id="result"></p>
+    <input type="text" id="guess" placeholder="Enter your guess">
+    <button class="button" onclick="makeGuess()">Make a Guess</button>
+    <button class="button" onclick="buyHint(1)">Buy Hint 1 ($50)</button>
+    <button class="button" onclick="buyHint(2)">Buy Hint 2 ($300)</button>
+    <button class="button" onclick="buyHint(3)">Buy Hint 3 ($1000)</button>
+    <button class="button" id="play-again-btn" style="display: none;" onclick="playAgain()">Play Again</button>
+    <button class="button" id="exit-btn" style="display: none;" onclick="exitGame()">Exit Game</button>
+  </div>
+
+  <div id="achievement-popup" class="popup">
+    <p>Congratulations! You've achieved something!</p>
+  </div>
+
+  <div id="buttons-container" class="container" style="display: none;">
+    <button class="button" id="customize-button" onclick="showCustomizationOptions()">Customize</button>
+    <button class="button" id="exit-button" onclick="showExitPrompt()">Exit</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
