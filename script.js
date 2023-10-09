@@ -1,3 +1,7 @@
+// add function after exit game to refresh main menu 
+// add console.log in every function
+
+
 // Initialize game variables
 let money = 500
 let attempts = 5;
@@ -107,6 +111,7 @@ function playAgain() {
   document.getElementById('exit-btn').style.display = 'none';
   document.getElementById('guess').value = "";
   document.getElementById('guess').disabled = false;
+  console.log("this is working ")
 }
 
 // Show customization options
@@ -129,7 +134,7 @@ function showPlayOptions() {
   gameContainer.style.display = 'block';
   buttonsContainer.style.display = 'block';
 
-  document.getElementById('result').innerText = "Game started!";
+  document.getElementById('result').innerText = "Game started! Good luck";
 }
 
 
@@ -146,13 +151,14 @@ function showExitPrompt() {
 // Exit game
 function exitGame() {
   alert("Thank you for playing EraGlimpse: Age Unveiled!\nDeveloped by [JOHN FRANCIS SARO]");
+  console.log("THis is working master")
 }
 
 // Show achievement popup
 function showAchievementPopup() {
   const popup = document.getElementById('achievement-popup');
   popup.style.display = 'block';
-
+  console.log("this is working !")
   // Hide the popup after a few seconds (e.g., 3 seconds)
   setTimeout(() => {
     popup.style.display = 'none';
