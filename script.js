@@ -100,7 +100,7 @@ function resetAttempts() {
 
 // Play again
 function playAgain() {
-  money = 300;
+  money = 50000;
   attempts = 5;
   targetAge = 67;
   document.getElementById('cheat-indicator').innerText = "";
