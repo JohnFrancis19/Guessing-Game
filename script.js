@@ -1,3 +1,5 @@
+// lets add console.log for the functions to see if it working
+// for commit testing in main
 // Initialize game variables
 let money = 500
 let attempts = 5;
@@ -88,19 +90,19 @@ function buyHint(hintNumber) {
   document.getElementById('result').innerText = "Insufficient funds to buy a hint.";
 }
 
-// Reset attempts
+// Reset attempts <== para saan ng ulit ito sa cheat ba na inempliment nung first version palang? hahaha
 function resetAttempts() {
   attempts = 5;
   updateAttemptsDisplay();
 }
 
-// Play again
+// Play again <== now working 
 function playAgain() {
   money = 300;
   attempts = 5;
   targetAge = 67;
   document.getElementById('cheat-indicator').innerText = "";
-  updateMoneyDisplay();
+  updateMoneyDisplay();// what cheats? hahhaa
   updateAttemptsDisplay();
   document.getElementById('result').innerText = "";
   document.getElementById('play-again-btn').style.display = 'none';
