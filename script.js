@@ -1,5 +1,5 @@
 // Initialize game variables
-let money = 300;
+let money = 500
 let attempts = 5;
 let targetAge = 87;
 
@@ -62,11 +62,11 @@ function buyHint(hintNumber) {
 
     switch (hintNumber) {
       case 1:
-        hintPrice = 300;
+        hintPrice = 50;
         hintDescription = "Hint 1: The age is within 10 years of " + targetAge;
         break;
       case 2:
-        hintPrice = 500;
+        hintPrice = 300;
         hintDescription = "Hint 2: The age is within 5 years of " + targetAge;
         break;
       case 3:
