@@ -3,7 +3,7 @@
 
 
 // Initialize game variables
-let money = 500
+let money = 50
 let attempts = 5;
 let targetAge = 87;
 
@@ -66,15 +66,15 @@ function buyHint(hintNumber) {
 
     switch (hintNumber) {
       case 1:
-        hintPrice = 500;
+        hintPrice = 50;
         hintDescription = "Hint 1: The age is within 10 years of " + targetAge;
         break;
       case 2:
-        hintPrice = 3000;
+        hintPrice = 300;
         hintDescription = "Hint 2: The age is within 5 years of " + targetAge;
         break;
       case 3:
-        hintPrice = 10000;
+        hintPrice = 1000;
         hintDescription = "Hint 3: The age is within 1 year of " + targetAge;
         break;
       default:
@@ -82,7 +82,7 @@ function buyHint(hintNumber) {
     }
 
     if (money >= hintPrice) {
-      document.getElementById('result').innerText = hintDescription;
+      document.getElementById('Buyhint').innerText = hintDescription;
       money -= hintPrice;
       updateMoneyDisplay();
       return;
@@ -92,19 +92,21 @@ function buyHint(hintNumber) {
   document.getElementById('result').innerText = "Insufficient funds to buy a hint.";
 }
 
-// Reset attempts <== para saan ng ulit ito sa cheat ba na inempliment nung first version palang? hahaha
+// Reset attempts <== dapat mag reset kapag nag play-again
 function resetAttempts() {
   attempts = 5;
   updateAttemptsDisplay();
 }
 
-// Play again <== now working 
+// Play again <== now working!!!
 function playAgain() {
-  money += 500000; // Add the reward from the previous game to the starting money
+  const MAX_MONEY_LIMIT = 999999;
+  console.log("max money")
+  money += 500000; // Add the reward from the previous game to the starting money // implemented and working 
   attempts = 5;
   targetAge = 67;
-  document.getElementById('cheat-indicator').innerText = "";
-  updateMoneyDisplay();// what cheats? hahhaa
+  document.getElementById('play-again-btn').innerText = ""; // id "play-again-btn" is not called last time
+  updateMoneyDisplay();
   updateAttemptsDisplay();
   document.getElementById('result').innerText = "";
   document.getElementById('play-again-btn').style.display = 'none';
@@ -112,6 +114,12 @@ function playAgain() {
   document.getElementById('guess').value = "";
   document.getElementById('guess').disabled = false;
   console.log("this is working ")
+
+  // Check if money exceeds the limit
+  if (money > MAX_MONEY_LIMIT) {
+    money = MAX_MONEY_LIMIT;
+  }
+  console.log("Money limit called")
 }
 
 // Show customization options
