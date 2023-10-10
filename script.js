@@ -10,6 +10,7 @@ let targetAge = 87;
 // Update money display
 function updateMoneyDisplay() {
   document.getElementById('money').innerText = money;
+  console.log("Current money:", money);
 }
 
 // Update attempts display
@@ -59,22 +60,22 @@ function makeGuess() {
 
 // Buy a hint
 function buyHint(hintNumber) {
-  console.log(`buyHint(${hintNumber}) function was called`);
+  console.log(`buyHint(${hintNumber}) function was called!`);
   if (attempts > 0 && money > 0) {
     let hintPrice = 0;
     let hintDescription = '';
 
     switch (hintNumber) {
       case 1:
-        hintPrice = 500;
+        hintPrice = 50;
         hintDescription = "Hint 1: The age is within 10 years of " + targetAge;
         break;
       case 2:
-        hintPrice = 3000;
+        hintPrice = 300;
         hintDescription = "Hint 2: The age is within 5 years of " + targetAge;
         break;
       case 3:
-        hintPrice = 10000;
+        hintPrice = 1000;
         hintDescription = "Hint 3: The age is within 1 year of " + targetAge;
         break;
       default:
@@ -92,18 +93,20 @@ function buyHint(hintNumber) {
   document.getElementById('result').innerText = "Insufficient funds to buy a hint.";
 }
 
-// Reset attempts
+// Reset attempts <== dapat mag reset kapag nag play-again
 function resetAttempts() {
   attempts = 5;
   updateAttemptsDisplay();
 }
 
-// Play again
+// Play again <== now working!!!
 function playAgain() {
-  money = 500000;
+  const MAX_MONEY_LIMIT = 999999;
+  console.log("max money")
+  money += 500000; // Add the reward from the previous game to the starting money // implemented and working 
   attempts = 5;
   targetAge = 67;
-  document.getElementById('cheat-indicator').innerText = "";
+  document.getElementById('play-again-btn').innerText = ""; // id "play-again-btn" is not called last time
   updateMoneyDisplay();
   updateAttemptsDisplay();
   document.getElementById('result').innerText = "";
@@ -112,6 +115,12 @@ function playAgain() {
   document.getElementById('guess').value = "";
   document.getElementById('guess').disabled = false;
   console.log("this is working ")
+
+  // Check if money exceeds the limit
+  if (money > MAX_MONEY_LIMIT) {
+    money = MAX_MONEY_LIMIT;
+  }
+  console.log("Money limit called")
 }
 
 // Show customization options
@@ -167,4 +176,5 @@ function showAchievementPopup() {
 
 // Call necessary functions
 updateMoneyDisplay();
+
 updateAttemptsDisplay();
