@@ -10,6 +10,7 @@ let targetAge = 87;
 // Update money display
 function updateMoneyDisplay() {
   document.getElementById('money').innerText = money;
+  console.log("Current money:", money);
 }
 
 // Update attempts display
@@ -63,7 +64,7 @@ function makeGuess() {
 
 // Buy a hint
 function buyHint(hintNumber) {
-  console.log(`buyHint(${hintNumber}) function was called`);
+  console.log(`buyHint(${hintNumber}) function was called!`);
   if (attempts > 0 && money > 0) {
     let hintPrice = 0;
     let hintDescription = '';
@@ -96,18 +97,21 @@ function buyHint(hintNumber) {
   document.getElementById('result').innerText = "Insufficient funds to buy a hint.";
 }
 
-// Reset attempts
+// Reset attempts <== dapat mag reset kapag nag play-again
 function resetAttempts() {
   attempts = 5;
   updateAttemptsDisplay();
   console.log('reset')
 }
 
-// Play again
+// Play again <== now working!!!
 function playAgain() {
-  money = 500000;
+  const MAX_MONEY_LIMIT = 999999;
+  console.log("max money")
+  money += 500000; // Add the reward from the previous game to the starting money // implemented and working 
   attempts = 5;
   targetAge = 67;
+  document.getElementById('play-again-btn').innerText = ""; // id "play-again-btn" is not called last time
   updateMoneyDisplay();
   updateAttemptsDisplay();
   document.getElementById('result').innerText = "";
@@ -115,7 +119,13 @@ function playAgain() {
   document.getElementById('exit-btn').style.display = 'none';
   document.getElementById('guess').value = "";
   document.getElementById('guess').disabled = false;
-  console.log("playagain")
+  console.log("this is working ")
+
+  // Check if money exceeds the limit
+  if (money > MAX_MONEY_LIMIT) {
+    money = MAX_MONEY_LIMIT;
+  }
+  console.log("Money limit called")
 }
 
 // Show customization options
@@ -192,4 +202,5 @@ console.log("The function is being called")
 
 // Call necessary functions
 updateMoneyDisplay();
+
 updateAttemptsDisplay();
