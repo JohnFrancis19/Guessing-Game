@@ -37,6 +37,7 @@ function makeGuess() {
         document.getElementById('play-again-btn').style.display = 'block';
         document.getElementById('exit-btn').style.display = 'block';
         showAchievementPopup();  // Display the achievement popup for correct guess
+        console.log('Age has been guess')
       } else if (guess < targetAge) {
         document.getElementById('result').innerText = "Too low!";
       } else {
@@ -52,6 +53,8 @@ function makeGuess() {
       document.getElementById('play-again-btn').style.display = 'block';
       document.getElementById('exit-btn').style.display = 'block';
       document.getElementById('guess').disabled = true;
+      console.log('0 attempts')
+
     }
   } else {
     document.getElementById('result').innerText = "Out of attempts. Game over.";
@@ -103,7 +106,8 @@ function buyHint(hintNumber) {
 function resetAttempts() {
   attempts = 5;
   updateAttemptsDisplay();
-};
+  console.log('reset')
+}
 
 // Play again <== now working!!!
 function playAgain() {
@@ -166,19 +170,40 @@ function showExitPrompt() {
 // Exit game
 function exitGame() {
   alert("Thank you for playing EraGlimpse: Age Unveiled!\nDeveloped by [JOHN FRANCIS SARO]");
-  console.log("THis is working master")
+  console.log("exitgame ")
 }
 
+// show attempt 0
+function attempt_left() {
+  const popup = document.getElementById('attempt-left');
+  popup.style.display = 'block';
+  setTimeout(() => {
+  }, 3000);
+}
 // Show achievement popup
 function showAchievementPopup() {
   const popup = document.getElementById('achievement-popup');
   popup.style.display = 'block';
-  console.log("this is working !")
+  console.log(" !")
   // Hide the popup after a few seconds (e.g., 3 seconds)
   setTimeout(() => {
     popup.style.display = 'none';
   }, 3000);
 }
+
+
+// SaveProgress for testing
+function saveProgress() {
+  let text;
+  let person = prompt("Please enter your username:", " ");
+  if (person == null || person == "") {
+    text = "User cancelled the prompt.";
+  } else {
+    text = "Hello " + person + "! username has been saved";
+  }
+  document.getElementById("save-button").innerHTML = text;
+}
+console.log("The function is being called")
 
 // Call necessary functions
 updateMoneyDisplay();

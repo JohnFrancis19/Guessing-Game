@@ -1,6 +1,6 @@
 body {
   font-family: 'Roboto', sans-serif;
-  background: linear-gradient(135deg, #3498db, #8e44ad);
+  background: linear-gradient(135deg, #3498db, #00ff7e);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,6 +68,7 @@ body {
   display: none;
 }
 
+
 /* Add this CSS to show the title-screen initially */
 #title-screen {
   display: flex;
@@ -88,6 +89,19 @@ body {
 /* Styles for the achievement popup */
 #achievement-popup {
   display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#attempt-left {
+  display: none;
+  position: inherit;
   position: fixed;
   top: 50%;
   left: 50%;
