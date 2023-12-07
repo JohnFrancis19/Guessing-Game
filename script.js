@@ -34,6 +34,7 @@ function makeGuess() {
         document.getElementById('play-again-btn').style.display = 'block';
         document.getElementById('exit-btn').style.display = 'block';
         showAchievementPopup();  // Display the achievement popup for correct guess
+        console.log('Age has been guess')
       } else if (guess < targetAge) {
         document.getElementById('result').innerText = "Too low!";
       } else {
@@ -49,11 +50,14 @@ function makeGuess() {
       document.getElementById('play-again-btn').style.display = 'block';
       document.getElementById('exit-btn').style.display = 'block';
       document.getElementById('guess').disabled = true;
+      console.log('0 attempts')
+
     }
   } else {
     document.getElementById('result').innerText = "Out of attempts. Game over.";
     document.getElementById('play-again-btn').style.display = 'block';
     document.getElementById('exit-btn').style.display = 'block';
+    console.log('attemps 0')
   }
 }
 
@@ -66,15 +70,15 @@ function buyHint(hintNumber) {
 
     switch (hintNumber) {
       case 1:
-        hintPrice = 500;
+        hintPrice = 50;
         hintDescription = "Hint 1: The age is within 10 years of " + targetAge;
         break;
       case 2:
-        hintPrice = 3000;
+        hintPrice = 300;
         hintDescription = "Hint 2: The age is within 5 years of " + targetAge;
         break;
       case 3:
-        hintPrice = 10000;
+        hintPrice = 1000;
         hintDescription = "Hint 3: The age is within 1 year of " + targetAge;
         break;
       default:
@@ -96,6 +100,7 @@ function buyHint(hintNumber) {
 function resetAttempts() {
   attempts = 5;
   updateAttemptsDisplay();
+  console.log('reset')
 }
 
 // Play again
@@ -103,7 +108,6 @@ function playAgain() {
   money = 500000;
   attempts = 5;
   targetAge = 67;
-  document.getElementById('cheat-indicator').innerText = "";
   updateMoneyDisplay();
   updateAttemptsDisplay();
   document.getElementById('result').innerText = "";
@@ -111,7 +115,7 @@ function playAgain() {
   document.getElementById('exit-btn').style.display = 'none';
   document.getElementById('guess').value = "";
   document.getElementById('guess').disabled = false;
-  console.log("this is working ")
+  console.log("playagain")
 }
 
 // Show customization options
@@ -151,19 +155,40 @@ function showExitPrompt() {
 // Exit game
 function exitGame() {
   alert("Thank you for playing EraGlimpse: Age Unveiled!\nDeveloped by [JOHN FRANCIS SARO]");
-  console.log("THis is working master")
+  console.log("exitgame ")
 }
 
+// show attempt 0
+function attempt_left() {
+  const popup = document.getElementById('attempt-left');
+  popup.style.display = 'block';
+  setTimeout(() => {
+  }, 3000);
+}
 // Show achievement popup
 function showAchievementPopup() {
   const popup = document.getElementById('achievement-popup');
   popup.style.display = 'block';
-  console.log("this is working !")
+  console.log(" !")
   // Hide the popup after a few seconds (e.g., 3 seconds)
   setTimeout(() => {
     popup.style.display = 'none';
   }, 3000);
 }
+
+
+// SaveProgress for testing
+function saveProgress() {
+  let text;
+  let person = prompt("Please enter your username:", " ");
+  if (person == null || person == "") {
+    text = "User cancelled the prompt.";
+  } else {
+    text = "Hello " + person + "! username has been saved";
+  }
+  document.getElementById("save-button").innerHTML = text;
+}
+console.log("The function is being called")
 
 // Call necessary functions
 updateMoneyDisplay();
