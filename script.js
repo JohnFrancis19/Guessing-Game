@@ -1,3 +1,5 @@
+
+
 // add function after exit game to refresh main menu 
 // add console.log in every function
 
@@ -55,10 +57,12 @@ function makeGuess() {
     document.getElementById('result').innerText = "Out of attempts. Game over.";
     document.getElementById('play-again-btn').style.display = 'block';
     document.getElementById('exit-btn').style.display = 'block';
+    window.alert('====== All attemps has been used ======')
   }
 }
 
 // Buy a hint
+
 function buyHint(hintNumber) {
   console.log(`buyHint(${hintNumber}) function was called!`);
   if (attempts > 0 && money > 0) {
@@ -84,20 +88,22 @@ function buyHint(hintNumber) {
 
     if (money >= hintPrice) {
       document.getElementById('result').innerText = hintDescription;
+      document.getElementById('buyhint').innerText = hintDescription;
       money -= hintPrice;
-      updateMoneyDisplay();
+      // updateMoneyDisplay(); // Assuming you have this function
       return;
     }
   }
+};
 
-  document.getElementById('result').innerText = "Insufficient funds to buy a hint.";
-}
-
+//   document.getElementById('result').innerText = "Insufficient funds to buy a hint.";
+// }
+  
 // Reset attempts <== dapat mag reset kapag nag play-again
 function resetAttempts() {
   attempts = 5;
   updateAttemptsDisplay();
-}
+};
 
 // Play again <== now working!!!
 function playAgain() {
@@ -105,7 +111,7 @@ function playAgain() {
   console.log("max money")
   money += 500000; // Add the reward from the previous game to the starting money // implemented and working 
   attempts = 5;
-  targetAge = 67;
+  targetAge = Math.floor(Math.random() * 100);
   document.getElementById('play-again-btn').innerText = ""; // id "play-again-btn" is not called last time
   updateMoneyDisplay();
   updateAttemptsDisplay();
